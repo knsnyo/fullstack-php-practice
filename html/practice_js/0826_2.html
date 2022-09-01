@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100px;
+      height: 100px;
+      background-color: white;
+      margin: 10px;
+      transition-duration: 3s;
+    }
+    .hover{
+      background-color: black;
+      color: white;
+      border-radius: 100px;
+    }
+  </style>
+  <script>
+    $(document).ready(_ => {
+      $(".box").hover(_ => {
+        $(".box").addClass('hover')
+      }, _ => {
+        $(".box").removeClass('hover')
+      })
+
+      $("h1").hover(function () {
+        $(this).css({
+          "backgroundColor": "red",
+          "color": "white",
+        })
+      }, function () {
+        $(this).css({
+          "backgroundColor": "",
+          "color": "",
+        })
+      })
+    })
+  </script>
+</head>
+<body>
+  <div class="box">1</div>
+  <h1>click</h1>
+</body>
+</html>

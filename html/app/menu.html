@@ -1,0 +1,55 @@
+<?php
+session_start();
+?>
+<nav id="main-navi">
+  <!--주메뉴-->
+  <div class="pull-left">
+    <ul class="outer-menu">
+      <li class="outer-menu-item"><span class="menu-title"><a href="./notice_list.php" class="link">대학정보</a></span>
+        <ul class="inner-menu">
+          <li class="inner-menu-item">학교이념/역사</li>
+          <li class="inner-menu-item">대학조직</li>
+          <li class="inner-menu-item">대학현황</li>
+        </ul>
+      </li>
+      <li class="outer-menu-item"><span class="menu-title"><a href="#"> 대학/대학원</a></span>
+        <ul class="inner-menu">
+          <li class="inner-menu-item">대학</li>
+          <li class="inner-menu-item">대학원</li>
+          <li class="inner-menu-item">평생교육원</li>
+        </ul>
+      </li>
+      <li class="outer-menu-item"><span class="menu-title"><a href="#">입학</a></span></li>
+      <li class="outer-menu-item"><span class="menu-title"><a href="#"> 교육/생활</a></span>
+        <ul class="inner-menu">
+          <li class="inner-menu-item">학사/장학정보</li>
+          <li class="inner-menu-item">학생복지/생활</li>
+          <li class="inner-menu-item">신청/발급</li>
+          <li class="inner-menu-item">강의지원시스템</li>
+        </ul>
+      </li>
+      <?php
+      if (!isset($_SESSION['user_id'])) {
+      ?>
+      <li class="outer-menu-item"><span class="menu-title">
+        <a href="../login.php">로그인</a> / <a href="../member.html">회원가입</a>
+      </span>
+      <?php
+      } else {
+      ?>
+      <li class="outer-menu-item"><span class="menu-title"><a href="../logout.php"><?php echo $_SESSION['user_name'];?>&nbsp;로그아웃</a></span></li>
+      <?php
+      }
+      ?>
+    </ul>
+  </div>
+  <!--검색-->
+  <div class="pull-right">
+    <div class="search-bar">
+      <form method="post" action="../search.html">
+        <input type="text" class="input-search" name="search">
+        <input type="submit" value="검색" class="input-search-submit">
+      </form>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <title>Membership</title>
+</head>
+
+<body>
+  <form method="post" action="./member_ok.php">
+    <div style="margin: 0 auto; width: 90%;">
+      <h3 style="text-align: center;">Join Membership</h3>
+      <div class="form-group">
+        <!--label for="exampleInputID">ID</label-->
+        <ul style="width: 100%;">
+          <li style="list-style: none; float: left; margin-left: -40px; width: 95%;">
+            <input type="text" class="form-control" id="exampleInputID" aria-describedby="emailHelp" placeholder="input your ID" name="user_id" required>
+          </li>
+          <li style="list-style: none; float: left; margin-left: 5px;">
+            <input type="button" value="check" class="btn btn-secondary btn-sm " onclick="checkID()">
+          </li>
+          <script>
+            let checkID = () => {
+              let userID = document.getElementById('exampleInputID').value;
+              if(userID) {
+                url = "check.php?userid="+userID;
+                window.open(url, 'checkid', 'width=300, height=100');
+              } else {
+                alert("input your ID first");
+              }
+            }
+          </script>
+        </ul>
+      </div>
+      <div style="clear: both; padding: 8px;"></div>
+      <div class="form-group">
+        <!--label for="exampleInputPassword1">Password</label -->
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="input your password" name="user_password1" required>
+      </div>
+      <div class="form-group">
+        <!--label for="exampleInputPassword2">Password check</label-->
+        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="input your password" name="user_password2" required>
+      </div>
+      <div class="form-group">
+        <!--label for="exampleInputName">Name</label-->
+        <input type="text" class="form-control" id="exampleInputname" placeholder="input your name" name="user_name">
+      </div>
+      <div class="form-group">
+        <!--label for="exampleInputPhone">Phone</label-->
+        <input type="text" class="form-control" id="exampleInputPhone" placeholder="input your Phone Number" name="user_phone">
+      </div>
+      <div class="form-group">
+        <!--label for="exampleInputEmail">Email</label-->
+        <input type="email" class="form-control" id="exampleInputEmail" placeholder="input your Email Number" name="user_email">
+      </div>
+      <div class="form-group">
+        <!--label for="exampleInputPostcode">Postcode</label-->
+        <ul style="width: 100%;">
+          <li style="list-style: none; float: left; margin-left: -40px; width: 95%;">
+            <input type="text" class="form-control" id="sample4_postcode" placeholder="search your postcode" name="user_postcode" readonly>
+          </li>
+          <li style="list-style: none; float: left; margin-left: 5px;">
+            <input type="button" value="search" class="btn btn-secondary btn-sm " onclick="searchPostcode();">
+            <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+            <script>
+              let searchPostcode = () => {
+                new daum.Postcode({
+                  oncomplete: function (data) {
+                    // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                    // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+                    // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                    var roadAddr = data.roadAddress; // 도로명 주소 변수
+                    var extraRoadAddr = ''; // 참고 항목 변수
+
+                    // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                    // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                    if (data.bname !== '' && /[동|로|가]$/g.test(data.bname)) {
+                      extraRoadAddr += data.bname;
+                    }
+                    // 건물명이 있고, 공동주택일 경우 추가한다.
+                    if (data.buildingName !== '' && data.apartment === 'Y') {
+                      extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                    }
+                    // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                    if (extraRoadAddr !== '') {
+                      extraRoadAddr = ' (' + extraRoadAddr + ')';
+                    }
+
+                    // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                    document.getElementById('sample4_postcode').value = data.zonecode;
+                    document.getElementById("sample4_roadAddress").value = roadAddr;
+                    document.getElementById("sample4_jibunAddress").value = data.jibunAddress;
+
+                    // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
+                    if (roadAddr !== '') {
+                      document.getElementById("sample4_extraAddress").value = extraRoadAddr;
+                    } else {
+                      document.getElementById("sample4_extraAddress").value = '';
+                    }
+
+                    var guideTextBox = document.getElementById("guide");
+                    // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
+                    if (data.autoRoadAddress) {
+                      var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
+                      guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
+                      guideTextBox.style.display = 'block';
+
+                    } else if (data.autoJibunAddress) {
+                      var expJibunAddr = data.autoJibunAddress;
+                      guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
+                      guideTextBox.style.display = 'block';
+                    } else {
+                      guideTextBox.innerHTML = '';
+                      guideTextBox.style.display = 'none';
+                    }
+                  }
+                }).open();
+              }
+            </script>
+          </li>
+        </ul>
+      </div>
+      <div style="clear: both; padding: 8px;"></div>
+      <div class="form-group">
+        <!--label for="exampleInputAddress">Address</label-->
+        <input type="text" class="form-control" id="sample4_roadAddress" placeholder="input your address" name="user_address">
+        <input type="hidden" class="form-control" id="sample4_jibunAddress" placeholder="input your old address" name="user_old_address">
+        <span id="guide" style="color:#999;display:none"></span>
+        <div style="padding: 8px;"></div>
+        <input type="text" class="form-control" id="sample4_detailAddress" placeholder="input your detail address" name="user_detail_address">
+        <div style="padding: 8px;"></div>
+        <input type="text" class="form-control" id="sample4_extraAddress" placeholder="참고항목" hidden>
+      </div>
+      <div class="form-group">
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="introduce yourself" name="user_intro"></textarea>
+      </div>
+      <div style="text-align: center;">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </form>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

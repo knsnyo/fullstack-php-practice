@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(() =>{
+      $("button.a1").click(() =>{
+        $("h1,h2,p").addClass("title");
+        $("div").addClass("text");
+      })
+      $("button.a2").click(_ => {
+        $("h1,h2,p").removeClass("title");
+        $("div").removeClass("text");
+      })
+      $("button.a3").click(_ => {
+        $("div").toggleClass("text");
+      })
+    })
+  </script>
+  <style>
+    .text {
+      color: blue;
+      font-size: 40px;
+    }
+    .title {
+      font-weight: bold;
+      font-size: 50px;
+    }
+  </style>
+</head>
+<body>
+  <h1>HTML</h1>
+  <h1>CSS</h1>
+  <p>Javascript</p>
+  <div>JQuery</div>
+  <button class="a1">CSS 적용</button>
+  <button class="a2">CSS 해제</button>
+  <button class="a3">CSS 적용/해제</button>
+</body>
+</html>

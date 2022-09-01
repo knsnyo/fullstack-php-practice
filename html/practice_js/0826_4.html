@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+  </style>
+  <script>
+    $(document).ready(_ => {
+      $('form').submit(function (e){
+        var value = $("input").val();
+
+        if (value.replace(/[가-힣]/g,'').length == 0) {
+          alert("pass")
+        } else {
+          alert("please typing korean")
+          e.preventDefault()
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+  <form action="https://www.cu.ac.kr" method="post">
+    <label for="name">name</label>
+    <input type="text" name="" id="name">
+    <input type="submit" value="request">
+  </form>
+</body>
+</html>

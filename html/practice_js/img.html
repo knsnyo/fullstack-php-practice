@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    img {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 200px;
+      margin: 10px;
+    }
+    li {
+      list-style-type: none;
+    }
+  </style>
+  <link rel="stylesheet" href="./dist/css/lightbox.css">
+  <script src="./dist/js/lightbox-plus-jquery.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(_ => {
+      
+    });
+  </script>
+</head>
+<body>
+  <ul>
+    <li>
+      <a href="./img/butterfly.png" data-lightbox="img"><img src="./img/butterfly.png"></a>
+    </li>
+    <li>
+      <a href="./img/falling.jpg" data-lightbox="img"><img src="./img/falling.jpg"></a>
+    </li>
+    <li>
+      <a href="./img/halloween.jpg" data-lightbox="img"><img src="./img/halloween.jpg"></a>
+    </li>
+  </ul>
+</body>
+</html>

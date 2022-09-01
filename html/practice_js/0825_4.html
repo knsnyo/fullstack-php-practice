@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      width: 100vw;
+      height: 100vh;
+    }
+    #slide {
+      background-color: white;
+      color: red;
+      text-align: center;
+      margin: 10px;
+      font-size: 40px;
+      font-weight: bold;
+      align-items: center;
+      justify-content: center;
+    }
+    #notice {
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      font-weight: bold;
+      display: none;
+      margin: 10px;
+    }
+    #button {
+      justify-content: center;
+      align-items: center;
+      background-color: red;
+      color: white;
+      width: 150px;
+      height: 50px;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+      border-radius: 50px;
+      line-height: 50px;
+      margin: 10px;
+    }
+  </style>
+  <script>
+    $(document).ready(_ => {
+      $("#button").click(_ => {
+        //$("#notice").slideDown("slow")
+        $("#notice").slideToggle("slow")
+      })
+      $("#notice").click(_ => {
+        //$("#notice").slideUp("fast")
+      })
+    })
+    </script>
+</head>
+<body>
+  <div id="slide">여기어때</div>
+  <div id="notice">
+    올 여름 혼자 어때 둘이 어때 셋이 어때<br>
+    올 여름 여행 어때 바다 어때 여기 어때<br>
+    여행할 때 여기 어때 여행할 때 여기 어때<br>
+    여행할 때 여기 어때 여행할 때 여기 어때<br>
+  </div>
+  <div id="button">Slide</div>
+</body>
+</html>

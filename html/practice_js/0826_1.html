@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+  </style>
+  <script>
+    $(document).ready(_ => {
+      //$(".box").css('margin', '10px');
+      //$(".box").css('width', '100px');
+      //$(".box").css('height', '100px');
+      //$(".box").css("backgroundColor", "red")
+      $(".box").css({
+        "justifyContent": "center",
+        "alignItems": "center",
+        "display": "flex",
+        "backgroundColor": "red",
+        "width": "100px",
+        "height": "100px",
+        "margin": "10px"
+      })
+    })
+  </script>
+</head>
+<body>
+  <div class="box">1</div>
+  <div class="box">2</div>
+  <div class="box">3</div>
+</body>
+</html>

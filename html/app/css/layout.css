@@ -1,0 +1,195 @@
+body {
+  width: 960px;
+  margin: 0 auto;
+  background-color: #e6e6e6;
+}
+
+#page-wrapper {
+  background-color: white;
+  margin: 40px 0;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 6px #000;
+}
+
+/************** 헤더영역 *********************/
+
+#main-header {
+  padding: 40px 50px;
+}
+
+.main-title {
+  font-size: 30px;
+}
+
+.main-desc {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/************** 메뉴영역 *********************/
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+#main-navi {
+  height: 40px;
+  border-top: 1px solid #3c3b3b;
+  border-bottom: 1px solid #3c3b3b;
+  margin-bottom: 20px;
+}
+
+.outer-menu-item {
+  float: left;
+  position: relative;
+}
+
+.outer-menu-item:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.menu-title {
+  height: 30px;
+  line-height: 30px;
+  padding: 5px 20px;
+  text-align: center;
+  display: block;
+}
+
+.inner-menu {
+  display: none;
+}
+
+/***************** 검색영역 **************************/
+
+.search-bar {
+  padding: 7px;
+}
+
+.input-search {
+  border: 1px solid #ccc;
+  width: 120px;
+  height: 24px;
+  border-radius: 15px 0 0 15px;
+  font-size: 12px;
+  color: #555;
+  padding: 0 0 0 10px;
+  background-color: #fff;
+}
+
+.input-search-submit {
+  width: 50px;
+  height: 26px;
+  border: 1px solid #ccc;
+  border-radius: 0 15px 15px 0;
+  vertical-align: top;
+  margin-left: -6px;
+}
+
+
+/*********************** 본문영역 *************************/
+
+#content {
+  overflow: hidden;
+}
+
+/*해당범위의 공간을 확보 */
+#main-section {
+  float: left;
+  width: 710px;
+}
+
+#main-aside {
+  float: right;
+  width: 200px;
+}
+
+article {
+  border-bottom: 1px solid #c8c8c8;
+  padding: 0 10px 20px 10px;
+}
+
+.article-header {
+  padding: 20px 0;
+}
+
+.article-title {
+  font-size: 25px;
+  font-weight: bold;
+  padding-bottom: 10px;
+}
+
+.article-desc {
+  font-size: 13px;
+}
+
+.article-img {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+img {
+  width: 100%;
+}
+
+.article-body {
+  font-size: 14px;
+  text-align: justify;
+}
+
+
+/***************** aside 영역 ************************/
+
+.aside-list {
+  padding: 30px 0 30px 0;
+}
+
+.aside-list>h3 {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.aside-list li a {
+  margin-left: 10px;
+  font-size: 13px;
+}
+
+/****************** 푸터영역 ************************/
+#main-footer {
+  height: 80px;
+  background-color: #000;
+  margin-top: 40px;
+}
+
+.footer {
+  text-align: center;
+  line-height: 80px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+
+/***************** 글등록 **************************/
+.notice_btn {
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.btn {
+  width: 150px;
+  height: 35px;
+  background-color: black;
+  border: 0;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}

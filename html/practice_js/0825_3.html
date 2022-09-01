@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    $(document).ready(_ => {
+      $("button.a1").click(_ => {
+        $("img.img1").animate({
+          "width": "100px",
+        })
+      })
+      $("button.a2").click(_ => {
+        $("img.img1").animate({
+          "width": "200px",
+        })
+      })
+      $("button.a3").click(_ => {
+        $("img.img1").animate({
+          "width": "300px",
+        })
+      })
+      $("button.left").click(_ => {
+        $("img.img1").animate({
+          "right": "100px"
+        })
+      })
+      $("button.right").click(_ => {
+        $("img.img1").animate({
+          "left": "100px"
+        })
+      })
+      $("button.a4").click(_ => {
+        $("img.img1").fadeOut("slow");
+      })
+      $("button.a5").click(_ => {
+        $("img.img1").fadeIn("slow");
+        //$("img.img1").fadeTo("slow", 0.1);
+      })
+    });
+  </script>
+</head>
+<body>
+  <div class="pic" style="text-align: center;">
+    <p>image size option</p>
+    <button class="left">left</button>
+    <button class="a1">가로 100</button>
+    <button class="a2">가로 200</button>
+    <button class="a3">가로 300</button>
+    <button class="right">right</button>
+    <br>
+    <button class="a4">fade out</button>
+    <button class="a5">fade in</button>
+    <br><br>
+    <img src="../app/img/img1.jpg" class="img1" style="position: relative;">
+    <!--
+      show / hide / toggle / fadeIn / fadeOut / fadeToggle
+      fadeTo / slideUp / slideDown / slideToggle
+    -->
+  </div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+.write-form {
+  width: 700px;
+  border: 1px solid black;
+  margin: 0 auto;
+}
+
+td.td1 {
+  width: 100px;
+  text-align: center;
+  height: 35px;
+  background-color: #333;
+  color: white;
+}
+
+td.td2 {
+  width: 70%;
+}
+
+td.td2>input {
+  width: 40%;
+  height: 30px;
+}
+
+td.td3 {
+  text-align: center;
+}
+
+td.td3>input {
+  width: 150px;
+  height: 35px;
+  background-color: black;
+  border: 0;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}

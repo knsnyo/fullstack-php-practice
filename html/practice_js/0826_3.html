@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <style>
+    body {
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+  </style>
+  <script>
+    $(document).ready(_ => {
+      /*
+      $("#box").css({
+        "width": "100px",
+        "height": "100px",
+        "backgroundColor": "red",
+        "justifyContent": "center",
+        "alignItems": "center",
+        "display": "flex",
+      }).on("click", function () {
+        $(this).css({
+          "backgroundColor": "orange"
+        })
+      }).on("mouseenter", function () {
+        $(this).css({
+          "backgroundColor": "blue"
+        })
+      }).on("mouseleave", function () {
+        $(this).css({
+          "backgroundColor": "red",
+        })
+      })
+      */
+    $("#box").css({
+        "width": "100px",
+        "height": "100px",
+        "backgroundColor": "red",
+        "justifyContent": "center",
+        "alignItems": "center",
+        "display": "flex",
+      }).on({
+        "click": function() {
+          $(this).css({
+            "backgroundColor": "orange"
+          })
+        },
+        "mouseenter": function () {
+          $(this).css({
+            "backgroundColor": "blue",
+          })
+        },
+        "mouseleave": function () {
+          $(this).css({
+            "backgroundColor": "red",
+          })
+        }
+      })
+    })
+  </script>
+</head>
+<body>
+  <div id="box"></div>
+</body>
+</html>
